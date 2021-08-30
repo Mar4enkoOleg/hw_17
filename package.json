@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src index.js",
-    "seq": "npx sequelize-cli"
+    "prestart": "npx sequelize-cli db:migrate",
+    "start": "node src/index.js",
+    "seq": "npx sequelize-cli",
+    "createdb": "npx sequelize-cli db:create",
+    "runseeds": "npx sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "",

@@ -14,7 +14,11 @@ module.exports = {
       underscored: true,
       createdAt: "created_at",
       updatedAt: "updated_at"
-    }
+    },
+    // pool: {
+    //   max: 10,
+    //   min: 1
+    // }
   },
   "test": {
     "username": "root",

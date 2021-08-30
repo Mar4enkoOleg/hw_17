@@ -1,6 +1,5 @@
 'use strict';
 
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     /**
@@ -9,12 +8,15 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.addColumn('User', 'role_id', {
-      allowNull: true,
+    await queryInterface.addColumn('User', 'address_id', {
       type: Sequelize.INTEGER,
-      references: { model: 'Role', key: 'id' },
-      onUpdate: 'CASCADE',
-      onDelete: 'SET NULL'
+      references: {
+        model: 'Address',
+        key: 'id'
+      },
+      allowNull: true,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
     })
   },
 
@@ -25,6 +27,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.removeColumn('User', 'role_id')
+    await queryInterface.removeColumn('User', 'address_id')
   }
 };

@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Role)
+      this.belongsTo(models.Address)
     }
   };
   User.init({
@@ -29,10 +31,19 @@ module.exports = (sequelize, DataTypes) => {
     is_active: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
+    },
+    role_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    address_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   }, {
     sequelize,
     modelName: 'User',
   });
+
   return User;
 };
